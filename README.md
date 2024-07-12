@@ -3,6 +3,7 @@
 This is a simple Todo application with a React frontend and a Flask backend. The backend provides an API with JSON data for the frontend to consume and display.
 
 ## Table of Contents
+
 - [Project Overview](#project-overview)
 - [Project Structure](#project-structure)
 - [Setup Instructions](#setup-instructions)
@@ -12,9 +13,10 @@ This is a simple Todo application with a React frontend and a Flask backend. The
 
 ## Project Overview
 
-The Todo App is designed to help users manage their tasks. Users can create, read, update, and delete todo items. The frontend is built using React, and the backend is built using Flask and PostgreSQL.
+The Todo App is designed to help users manage their tasks. Users can create, read, update, and delete todo items. The frontend is built using Next.js, and the backend is built using Flask and PostgreSQL.
 
 ## Project Structure
+
 ```bash
 todo-app/
 ├── backend/
@@ -34,54 +36,45 @@ todo-app/
 │ ├── requirements.txt
 │ └── run.py
 ├── frontend/
-│ ├── public/
-│ │ ├── index.html
-│ │ └── ...
-│ ├── src/
-│ │ ├── components/
-│ │ │ ├── App.js
-│ │ │ ├── TodoItem.js
-│ │ │ └── ...
-│ │ ├── services/
-│ │ │ └── api.js
-│ │ ├── App.js
-│ │ ├── index.js
-│ │ └── ...
-│ ├── package.json
-│ ├── package-lock.json
-│ └── .env
 ├── .gitignore
 ├── README.md
 └── docker-compose.yml
 ```
+
 ## Setup Instructions
 
 ### Backend
+
 1. Navigate to the `backend/` directory.
 2. Create and activate a virtual environment:
-    ```sh
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
 3. Install dependencies:
-    ```sh
-    pip install -r requirements.txt
-    ```
+   ```sh
+   pip install -r requirements.txt
+   ```
 4. Run the Flask app:
-    ```sh
-    python run.py
-    ```
+   ```sh
+   python run.py
+   ```
 
 ### Frontend
+
 1. Navigate to the `frontend/` directory.
 2. Install dependencies:
-    ```sh
-    npm install
-    ```
-3. Start the React app:
-    ```sh
-    npm start
-    ```
+   ```sh
+   npm install
+   ```
+3. Start the local development server:
+   ```sh
+   npm run dev
+   ```
+4. Build the app for deployement:
+   ```sh
+   npm run build
+   ```
 
 ## Group Project Guidelines
 
