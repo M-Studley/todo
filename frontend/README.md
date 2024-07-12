@@ -18,7 +18,7 @@
 - JSX a11y
 - Prettier
 
-### Stylist rules
+### Style rules
 
 - Prettier defaults
 - Single quotes
