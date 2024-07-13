@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, redirect, url_for
+from flask import Blueprint, request, jsonify
 
 from .database import Database
 
@@ -7,15 +7,21 @@ main = Blueprint('main', __name__)
 db = Database()
 
 
-@main.route('/', methods=['GET'])
-def index():
+@main.route('/todos', methods=['GET'])
+def get_all_todos():
     all_data = db.fetchall('SELECT * FROM test_todo')
     return json.dumps(all_data)
 
 
-@main.route('/<title>/<description>', methods=['GET'])
-def create_todo(title, description):
-    db.execute(
-        'INSERT INTO test_todo (title, description) VALUES (%s, %s)',
-        (title, description))
-    return redirect(url_for("main.index"))
+@main.route('/todos', methods=['POST'])
+def create_todo():
+    # Extracting json data
+    data = request.get_json()
+    # Extracting keys and values
+    columns = ', '.join(data.keys())
+    values = tuple(data.values())
+    # Constructing query
+    query = f"INSERT INTO test_todo ({columns}) VALUES ({', '.join(['%s'] * len(values))})"
+    # Executing query
+    db.execute(query, values)
+    return jsonify(data), 201
