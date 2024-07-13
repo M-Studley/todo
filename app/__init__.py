@@ -4,6 +4,7 @@ from .database import Database
 
 
 def create_app():
+    # Initialize the app
     app = Flask(__name__)
 
     # Register main blueprint

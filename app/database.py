@@ -25,15 +25,15 @@ class Database:
         return Database.curs.fetchone()
 
     @classmethod
-    def executemany(cls, query: str, data: list[tuple]) -> None:
+    def executemany(cls, query: str, values: list[tuple]) -> None:
         print("Executing many...")
-        Database.curs.executemany(query, data)
+        Database.curs.executemany(query, values)
         Database.conn.commit()
 
     @classmethod
-    def execute(cls, query: str, data: tuple = ()) -> None:
+    def execute(cls, query: str, values: tuple = ()) -> None:
         print("Executing one...")
-        Database.curs.execute(query, data)
+        Database.curs.execute(query, values)
         Database.conn.commit()
 
 
