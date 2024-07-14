@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CheckCircleIcon,
   EllipsisVerticalIcon,
@@ -14,12 +14,14 @@ import {
   DropdownTrigger,
 } from '@nextui-org/react';
 
+import formatDate from '@/utils/format-date';
+
 import Circle from './Circle';
 import Priority from './Priority';
 
 export interface TodoInt {
   id: string;
-  status: 'completed' | 'not completed';
+  completed: boolean;
   priority: 'low' | 'neutral' | 'high' | 'critical';
   title: string;
   description?: string;
@@ -28,34 +30,43 @@ export interface TodoInt {
 
 export default function Todo({
   id,
-  status,
+  completed,
   priority,
   title,
   description,
   date,
 }: TodoInt) {
-  const formattedDate = new Intl.DateTimeFormat('en-US', {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  }).format(date);
+  const [isCompleted, setIsCompleted] = useState(completed);
+
+  const changeStatus = () => {
+    setIsCompleted(!isCompleted);
+    // edit with an api call on backend too
+  };
 
   return (
     <Card className="bg-white/40 text-foreground-800 dark:bg-white/20">
       <CardBody className="flex flex-row items-center gap-2">
         <div className="ml-1 flex items-center gap-2">
           <Priority priority={priority} />
-          {status === 'completed' ? (
-            <CheckCircleIcon width={24} />
-          ) : (
-            <Circle width={22} />
-          )}
+          <Button
+            isIconOnly
+            className="bg-transparent"
+            onClick={changeStatus}
+            disableRipple
+          >
+            {isCompleted ? (
+              <CheckCircleIcon width={24} />
+            ) : (
+              <Circle width={24} />
+            )}
+          </Button>
           <p>{title}</p>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <p className="text-sm">{formattedDate}</p>
+          <p className="text-sm">{formatDate(date)}</p>
           <Dropdown>
             <DropdownTrigger>
-              <Button isIconOnly className="w-4 bg-transparent">
+              <Button isIconOnly className="bg-transparent" disableRipple>
                 <EllipsisVerticalIcon width={20} />
               </Button>
             </DropdownTrigger>

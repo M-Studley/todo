@@ -11,7 +11,7 @@ const mockTodos: TodoInt[] = [
   {
     id: '0001',
     title: 'Test',
-    status: 'not completed',
+    completed: false,
     priority: 'neutral',
     description: 'This is a test',
     date: new Date(),
@@ -19,7 +19,7 @@ const mockTodos: TodoInt[] = [
   {
     id: '0002',
     title: 'Test 2',
-    status: 'not completed',
+    completed: false,
     priority: 'high',
     description: 'This is a test 2',
     date: new Date(),
@@ -27,7 +27,7 @@ const mockTodos: TodoInt[] = [
   {
     id: '0003',
     title: 'Test 3',
-    status: 'completed',
+    completed: true,
     priority: 'critical',
     description: 'This is a test 3',
     date: new Date(),
@@ -62,7 +62,7 @@ export default function TodosPage() {
               key={todo.id}
               id={todo.id}
               title={todo.title}
-              status={todo.status}
+              completed={todo.completed}
               priority={todo.priority}
               date={new Date()}
             />
