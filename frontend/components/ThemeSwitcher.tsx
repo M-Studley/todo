@@ -53,16 +53,3 @@ export default function ThemeSwitcher() {
     </Dropdown>
   );
 }
-
-/*
-    <div className={className}>
-      <Switch
-        isSelected={currentTheme !== 'dark'}
-        size="md"
-        color="default"
-        thumbIcon={thumbIcon}
-        onChange={() => setTheme(getNextTheme())}
-      />
-    </div>
-
-*/
