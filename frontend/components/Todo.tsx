@@ -29,7 +29,7 @@ export default function Todo({
   }).format(date);
 
   return (
-    <Card className="bg-white/40 dark:bg-white/40">
+    <Card className="bg-white/40 text-foreground-700 dark:bg-white/40">
       <CardBody className="flex flex-row items-center gap-2">
         <div className="ml-1 flex items-center gap-2">
           <Priority priority={priority} />

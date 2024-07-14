@@ -2,15 +2,15 @@ import React from 'react';
 import { Cog6ToothIcon } from '@heroicons/react/24/outline';
 import { Avatar } from '@nextui-org/react';
 
+import Sidebar from '@/components/Sidebar';
+
 import ThemeSwitcher from '../../components/ThemeSwitcher';
 import Todo from '../../components/Todo';
 
 export default function TodosPage() {
   return (
     <div className="grid h-[100vh] grid-cols-4 grid-rows-7 gap-2 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 dark:from-indigo-700 dark:via-purple-700 dark:to-pink-700">
-      <nav className="row-span-7 m-3 rounded-xl border border-white border-opacity-20 bg-white bg-opacity-30 p-6 shadow-xl backdrop-blur-xl">
-        1
-      </nav>
+      <Sidebar />
       <header className="col-span-3 row-span-1 ml-3 mr-3 mt-3 flex items-center justify-between rounded-xl border border-white border-opacity-20 bg-white bg-opacity-30 p-8 shadow-lg backdrop-blur-lg">
         <h2 className="text-2xl">Hi, John!</h2>
         <div className="ml-auto flex items-center gap-2">
