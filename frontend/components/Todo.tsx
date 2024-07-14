@@ -10,7 +10,7 @@ import Priority from './Priority';
 
 interface Todo {
   status: 'completed' | 'not completed';
-  priority: 'low' | 'normal' | 'high' | 'critical';
+  priority: 'low' | 'neutral' | 'high' | 'critical';
   title: string;
   description?: string;
   date: Date;

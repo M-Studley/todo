@@ -32,7 +32,7 @@ export default function TodosPage() {
         <Todo
           title="Test 2"
           status="completed"
-          priority="normal"
+          priority="neutral"
           date={new Date()}
         />
         <Todo

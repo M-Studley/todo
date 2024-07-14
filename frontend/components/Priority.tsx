@@ -1,15 +1,13 @@
 import React from 'react';
 
-export default function Priority({
-  priority,
-}: {
-  priority: 'low' | 'normal' | 'high' | 'critical';
-}) {
-  const getColorClass = (priority: 'low' | 'normal' | 'high' | 'critical') => {
+type PriorityType = 'low' | 'neutral' | 'high' | 'critical';
+
+export default function Priority({ priority }: { priority: PriorityType }) {
+  const getColorClass = (priority: PriorityType) => {
     switch (priority) {
       case 'low':
         return 'text-green-400';
-      case 'normal':
+      case 'neutral':
         return 'text-blue-400 dark:text-blue-500';
       case 'high':
         return 'text-yellow-400';
