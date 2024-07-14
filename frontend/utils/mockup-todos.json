@@ -1,92 +1,92 @@
 [
-    {
-        "id": 0,
-        "title": "Cereals",
-        "description": "Buy Three Kashi GO packs: toasted berry crisp, chocolate crunch and peanut butter crunch",
-        "priority": "neutral",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-13",
-        "completion_duration": "2"
-    },
-    {
-        "id": 1,
-        "title": "Vegetables",
-        "description": "Two pounds of carrots, four ponds of potatoes but ONLY at Joe's",
-        "priority": "neutral",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-11-12",
-        "completion_duration": "1"
-    },
-    {
-        "id": 2,
-        "title": "Tofu",
-        "description": "Chao creamy original at Wendy's",
-        "priority": "high",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-11",
-        "completion_duration": "0"
-    },
-    {
-        "id": 3,
-        "title": "Milk",
-        "description": "Two packs Danone 2.8",
-        "priority": "unknown",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-11",
-        "completion_duration": "0"
-    },
-    {
-        "id": 4,
-        "title": "Bread",
-        "description": "Pepperidge Farm, but only if not overbaked",
-        "priority": "low",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-12",
-        "completion_duration": "1"
-    },
-    {
-        "id": 5,
-        "title": "Chicken",
-        "description": "A pound of chicken white meat",
-        "priority": "low",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-12",
-        "completion_duration": "1"
-    },
-    {
-        "id": 6,
-        "title": "Pasta",
-        "description": "A pack of Barilla fusilli (or maybe La Molisana)",
-        "priority": "low",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-16",
-        "completion_duration": "5"
-    },
-    {
-        "id": 7,
-        "title": "Ice Cream",
-        "description": "Three bowls of BR caramel honey chocolate chip cheesecake for Snoopy",
-        "priority": "critical",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-11",
-        "completion_duration": "0"
-    },
-    {
-        "id": 8,
-        "title": "Fruit",
-        "description": "Bananas and mangoes",
-        "priority": "high",
-        "created_at": "2024-07-11",
-        "estimated_end": "2024-07-12",
-        "completion_duration": "1"
-    },
-    {
-        "id": 9,
-        "title": "Carrot Pealer",
-        "description": "A carrot pealer if they still have them at Wendy's",
-        "priority": "unknown",
-        "created_at": "2027-07-11",
-        "estimated_end": "2027-07-12",
-        "completion_duration": "1"
-    }
+  {
+    "id": 0,
+    "title": "Cereals",
+    "description": "Buy Three Kashi GO packs: toasted berry crisp, chocolate crunch and peanut butter crunch",
+    "priority": "neutral",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-13",
+    "completion_duration": "2"
+  },
+  {
+    "id": 1,
+    "title": "Vegetables",
+    "description": "Two pounds of carrots, four ponds of potatoes but ONLY at Joe's",
+    "priority": "neutral",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-11-12",
+    "completion_duration": "1"
+  },
+  {
+    "id": 2,
+    "title": "Tofu",
+    "description": "Chao creamy original at Wendy's",
+    "priority": "high",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-11",
+    "completion_duration": "0"
+  },
+  {
+    "id": 3,
+    "title": "Milk",
+    "description": "Two packs Danone 2.8",
+    "priority": "unknown",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-11",
+    "completion_duration": "0"
+  },
+  {
+    "id": 4,
+    "title": "Bread",
+    "description": "Pepperidge Farm, but only if not overbaked",
+    "priority": "low",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-12",
+    "completion_duration": "1"
+  },
+  {
+    "id": 5,
+    "title": "Chicken",
+    "description": "A pound of chicken white meat",
+    "priority": "low",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-12",
+    "completion_duration": "1"
+  },
+  {
+    "id": 6,
+    "title": "Pasta",
+    "description": "A pack of Barilla fusilli (or maybe La Molisana)",
+    "priority": "low",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-16",
+    "completion_duration": "5"
+  },
+  {
+    "id": 7,
+    "title": "Ice Cream",
+    "description": "Three bowls of BR caramel honey chocolate chip cheesecake for Snoopy",
+    "priority": "critical",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-11",
+    "completion_duration": "0"
+  },
+  {
+    "id": 8,
+    "title": "Fruit",
+    "description": "Bananas and mangoes",
+    "priority": "high",
+    "created_at": "2024-07-11",
+    "estimated_end": "2024-07-12",
+    "completion_duration": "1"
+  },
+  {
+    "id": 9,
+    "title": "Carrot Pealer",
+    "description": "A carrot pealer if they still have them at Wendy's",
+    "priority": "unknown",
+    "created_at": "2027-07-11",
+    "estimated_end": "2027-07-12",
+    "completion_duration": "1"
+  }
 ]
