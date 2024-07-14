@@ -16,6 +16,10 @@ export default function TodosPage() {
         <h2 className="text-2xl">John</h2>
         <div className="ml-auto flex items-center gap-2">
           <ThemeSwitcher />
+          {
+            // known bug of the "avatar" component causing disableAnimation warning on browser console.
+            // will be fixed in the next version of NextUI. GitHub issue ref: https://github.com/nextui-org/nextui/issues/3257
+          }
           <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
         </div>
       </header>
