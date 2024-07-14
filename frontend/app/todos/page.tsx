@@ -23,9 +23,30 @@ export default function TodosPage() {
           <h2 className="text-xl">Category</h2>
           <Cog6ToothIcon className="ml-auto" width={24} />
         </div>
-        <Todo />
-        <Todo />
-        <Todo />
+        <Todo
+          title="Test"
+          status="completed"
+          priority="critical"
+          date={new Date()}
+        />
+        <Todo
+          title="Test 2"
+          status="completed"
+          priority="normal"
+          date={new Date()}
+        />
+        <Todo
+          title="Test 3"
+          status="not completed"
+          priority="low"
+          date={new Date()}
+        />
+        <Todo
+          title="Test 3"
+          status="not completed"
+          priority="high"
+          date={new Date()}
+        />
       </main>
     </div>
   );
