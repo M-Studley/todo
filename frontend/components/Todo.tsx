@@ -1,14 +1,24 @@
+'use client';
 import React from 'react';
 import {
   CheckCircleIcon,
   EllipsisVerticalIcon,
 } from '@heroicons/react/24/outline';
-import { Card, CardBody } from '@nextui-org/react';
+import {
+  Button,
+  Card,
+  CardBody,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from '@nextui-org/react';
 
 import Circle from './Circle';
 import Priority from './Priority';
 
-interface Todo {
+export interface TodoInt {
+  id: string;
   status: 'completed' | 'not completed';
   priority: 'low' | 'neutral' | 'high' | 'critical';
   title: string;
@@ -17,12 +27,13 @@ interface Todo {
 }
 
 export default function Todo({
+  id,
   status,
   priority,
   title,
   description,
   date,
-}: Todo) {
+}: TodoInt) {
   const formattedDate = new Intl.DateTimeFormat('en-US', {
     dateStyle: 'medium',
     timeStyle: 'short',
@@ -42,7 +53,20 @@ export default function Todo({
         </div>
         <div className="ml-auto flex items-center gap-2">
           <p className="text-sm">{formattedDate}</p>
-          <EllipsisVerticalIcon width={20} />
+          <Dropdown>
+            <DropdownTrigger>
+              <Button isIconOnly className="w-4 bg-transparent">
+                <EllipsisVerticalIcon width={20} />
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Todo Actions">
+              <DropdownItem key="details">Show details</DropdownItem>
+              <DropdownItem key="edit">Edit</DropdownItem>
+              <DropdownItem key="delete" className="text-danger" color="danger">
+                Delete
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
       </CardBody>
     </Card>

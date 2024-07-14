@@ -5,7 +5,34 @@ import { Avatar } from '@nextui-org/react';
 import Sidebar from '@/components/Sidebar';
 
 import ThemeSwitcher from '../../components/ThemeSwitcher';
-import Todo from '../../components/Todo';
+import Todo, { TodoInt } from '../../components/Todo';
+
+const mockTodos: TodoInt[] = [
+  {
+    id: '0001',
+    title: 'Test',
+    status: 'not completed',
+    priority: 'neutral',
+    description: 'This is a test',
+    date: new Date(),
+  },
+  {
+    id: '0002',
+    title: 'Test 2',
+    status: 'not completed',
+    priority: 'high',
+    description: 'This is a test 2',
+    date: new Date(),
+  },
+  {
+    id: '0003',
+    title: 'Test 3',
+    status: 'completed',
+    priority: 'critical',
+    description: 'This is a test 3',
+    date: new Date(),
+  },
+];
 
 export default function TodosPage() {
   return (
@@ -28,30 +55,19 @@ export default function TodosPage() {
           <h2 className="text-xl">Category</h2>
           <Cog6ToothIcon className="ml-auto" width={24} />
         </div>
-        <Todo
-          title="Test"
-          status="completed"
-          priority="critical"
-          date={new Date()}
-        />
-        <Todo
-          title="Test 2"
-          status="completed"
-          priority="neutral"
-          date={new Date()}
-        />
-        <Todo
-          title="Test 3"
-          status="not completed"
-          priority="low"
-          date={new Date()}
-        />
-        <Todo
-          title="Test 3"
-          status="not completed"
-          priority="high"
-          date={new Date()}
-        />
+
+        {mockTodos.map((todo) => {
+          return (
+            <Todo
+              key={todo.id}
+              id={todo.id}
+              title={todo.title}
+              status={todo.status}
+              priority={todo.priority}
+              date={new Date()}
+            />
+          );
+        })}
       </main>
     </div>
   );
