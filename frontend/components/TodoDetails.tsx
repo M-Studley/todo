@@ -22,7 +22,12 @@ export default function TodoDetails({
 }) {
   return (
     <>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        className="bg-white/40 dark:bg-black/50"
+        backdrop="blur"
+      >
         <ModalContent>
           {(onClose) => (
             <>

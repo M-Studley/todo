@@ -52,7 +52,7 @@ export default function Todo({
 
   return (
     <>
-      <Card className="bg-white/40 text-foreground-800 dark:bg-white/20">
+      <Card className="bg-white/40 text-foreground-800 dark:bg-black/30">
         <CardBody className="flex flex-row items-center gap-2">
           <div className="ml-1 flex items-center gap-2">
             <Priority priority={priority} />
