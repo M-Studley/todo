@@ -36,7 +36,10 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <Dropdown>
+    <Dropdown
+      className="bg-white/30 backdrop-blur-lg dark:bg-black/30"
+      disableAnimation
+    >
       <DropdownTrigger>
         <Button isIconOnly className="bg-transparent shadow-lg">
           {thumbIcon()}

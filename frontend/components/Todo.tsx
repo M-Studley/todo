@@ -47,7 +47,7 @@ export default function Todo({
 
   const changeStatus = () => {
     setIsCompleted(!isCompleted);
-    // edit with an api call on backend too
+    // TODO edit with an api call on backend too
   };
 
   return (
@@ -72,7 +72,10 @@ export default function Todo({
           </div>
           <div className="ml-auto flex items-center gap-2">
             <p className="text-sm">{formatDate(dueDate)}</p>
-            <Dropdown>
+            <Dropdown
+              className="bg-white/30 backdrop-blur-lg dark:bg-black/30"
+              disableAnimation
+            >
               <DropdownTrigger>
                 <Button isIconOnly className="bg-transparent" disableRipple>
                   <EllipsisVerticalIcon width={20} />
