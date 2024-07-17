@@ -23,12 +23,6 @@ export default function ThemeSwitcher() {
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
-  const getNextTheme = () => {
-    if (theme === 'light') return 'dark';
-    if (theme === 'dark') return 'system';
-    return 'light';
-  };
-
   const thumbIcon = () => {
     if (currentTheme === 'light') return <SunIcon width={24} />;
     if (currentTheme === 'dark') return <MoonIcon width={24} />;

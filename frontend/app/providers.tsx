@@ -3,10 +3,8 @@ import { ThemeProvider } from 'next-themes';
 
 export async function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        {children}
-      </ThemeProvider>
-    </NextUIProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <NextUIProvider>{children}</NextUIProvider>
+    </ThemeProvider>
   );
 }

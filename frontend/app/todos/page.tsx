@@ -1,11 +1,14 @@
 import React from 'react';
 import { Cog6ToothIcon } from '@heroicons/react/24/outline';
 import { Avatar } from '@nextui-org/react';
+import dynamic from 'next/dynamic';
 
 import Sidebar from '@/components/Sidebar';
 
 import ThemeSwitcher from '../../components/ThemeSwitcher';
-import Todo, { TodoInt } from '../../components/Todo';
+import { TodoInt } from '../../components/Todo';
+
+const Todo = dynamic(() => import('../../components/Todo'), { ssr: false });
 
 const mockTodos: TodoInt[] = [
   {
@@ -14,8 +17,8 @@ const mockTodos: TodoInt[] = [
     completed: false,
     priority: 'neutral',
     description: 'This is a test',
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: new Date('05 October 2011 14:48 UTC'),
+    createdAt: new Date('05 October 2011 14:48 UTC'),
   },
   {
     id: '0002',
@@ -23,8 +26,8 @@ const mockTodos: TodoInt[] = [
     completed: false,
     priority: 'high',
     description: 'This is a test 2',
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: new Date('05 October 2011 14:48 UTC'),
+    createdAt: new Date('05 October 2011 14:48 UTC'),
   },
   {
     id: '0003',
@@ -32,8 +35,8 @@ const mockTodos: TodoInt[] = [
     completed: true,
     priority: 'critical',
     description: 'This is a test 3',
-    dueDate: new Date(),
-    createdAt: new Date(),
+    dueDate: new Date('05 October 2011 14:48 UTC'),
+    createdAt: new Date('05 October 2011 14:48 UTC'),
   },
 ];
 
@@ -58,7 +61,6 @@ export default function TodosPage() {
           <h2 className="text-xl">Category</h2>
           <Cog6ToothIcon className="ml-auto" width={24} />
         </div>
-
         {mockTodos.map((todo) => {
           return (
             <Todo
