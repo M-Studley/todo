@@ -5,17 +5,19 @@ from .database import Database
 main = Blueprint('main', __name__)
 db = Database()
 
+
 @main.route('/todos', methods=['GET'])
 def get_all_todos():
-    try:
-        all_data = db.fetchall('SELECT * FROM todo')
-        if all_data:
-            return jsonify(all_data)
-        else:
-            return make_response(jsonify([]), 204)
-    except Exception as e:
-        print(f'Error: {e}')
-        return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+    # try:
+    all_data = db.fetchall('SELECT * FROM todo')
+    if all_data:
+        return jsonify(all_data)
+    else:
+        return make_response(jsonify([]), 204)
+    # except Exception as e:
+    #     print(f'Error: {e}')
+    #     return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
 
 @main.route('/todos', methods=['POST'])
 def create_todo():
