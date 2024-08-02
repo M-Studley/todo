@@ -17,7 +17,7 @@ export default function TodoDetails({
 }: {
   isOpen: boolean;
   onOpenChange: () => void;
-  description: string;
+  description?: string;
   createdAt: Date;
 }) {
   return (
@@ -34,9 +34,11 @@ export default function TodoDetails({
               <ModalHeader className="flex flex-col gap-1">
                 Todo details
               </ModalHeader>
-              <ModalBody>
-                <p>{description}</p>
-              </ModalBody>
+              {description && (
+                <ModalBody>
+                  <p>{description}</p>
+                </ModalBody>
+              )}
               <ModalFooter>
                 <Button color="primary" onPress={onClose}>
                   Ok

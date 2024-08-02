@@ -6,41 +6,14 @@ import dynamic from 'next/dynamic';
 import Sidebar from '@/components/Sidebar';
 
 import ThemeSwitcher from '../../components/ThemeSwitcher';
-import { TodoInt } from '../../components/Todo';
+import { TodoData } from '../../components/Todo';
 
 const Todo = dynamic(() => import('../../components/Todo'), { ssr: false });
 
-const mockTodos: TodoInt[] = [
-  {
-    id: '0001',
-    title: 'Test',
-    completed: false,
-    priority: 'neutral',
-    description: 'This is a test',
-    dueDate: new Date('05 October 2011 14:48 UTC'),
-    createdAt: new Date('05 October 2011 14:48 UTC'),
-  },
-  {
-    id: '0002',
-    title: 'Test 2',
-    completed: false,
-    priority: 'high',
-    description: 'This is a test 2',
-    dueDate: new Date('05 October 2011 14:48 UTC'),
-    createdAt: new Date('05 October 2011 14:48 UTC'),
-  },
-  {
-    id: '0003',
-    title: 'Test 3',
-    completed: true,
-    priority: 'critical',
-    description: 'This is a test 3',
-    dueDate: new Date('05 October 2011 14:48 UTC'),
-    createdAt: new Date('05 October 2011 14:48 UTC'),
-  },
-];
+export default async function TodosPage() {
+  const response = await fetch('http://localhost:3000/mockup-todos.json');
+  const todos: TodoData[] = await response.json();
 
-export default function TodosPage() {
   return (
     <div className="grid h-[100vh] grid-cols-4 grid-rows-7 gap-2 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 dark:from-indigo-700 dark:via-purple-700 dark:to-pink-700">
       <Sidebar />
@@ -61,17 +34,18 @@ export default function TodosPage() {
           <h2 className="text-xl">Category</h2>
           <Cog6ToothIcon className="ml-auto" width={24} />
         </div>
-        {mockTodos.map((todo) => {
+        {todos.map((todo) => {
           return (
             <Todo
               key={todo.id}
               id={todo.id}
-              title={todo.title}
+              name={todo.name}
               description={todo.description}
-              completed={todo.completed}
+              category={todo.category}
               priority={todo.priority}
-              dueDate={todo.dueDate}
-              createdAt={todo.createdAt}
+              createdAt={new Date(todo.createdAt)}
+              deadline={todo.deadline && new Date(todo.deadline)}
+              completed={todo.completed}
             />
           );
         })}

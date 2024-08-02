@@ -22,25 +22,27 @@ import Circle from './Circle';
 import Priority from './Priority';
 import TodoDetails from './TodoDetails';
 
-export interface TodoInt {
-  id: string;
-  completed: boolean;
+export interface TodoData {
+  id: number;
+  name: string;
+  description?: string;
+  category: string;
   priority: 'low' | 'neutral' | 'high' | 'critical';
-  title: string;
-  description: string;
-  dueDate: Date;
   createdAt: Date;
+  deadline?: Date;
+  completed: boolean;
 }
 
 export default function Todo({
   id,
-  completed,
-  priority,
-  title,
+  name,
   description,
-  dueDate: dueDate,
-  createdAt: createdAt,
-}: TodoInt) {
+  category,
+  priority,
+  createdAt,
+  deadline,
+  completed,
+}: TodoData) {
   const [isCompleted, setIsCompleted] = useState(completed);
 
   // check browser agent (dropdown component has a bug with background blur and animation in chrome browsers)
@@ -76,10 +78,10 @@ export default function Todo({
                 <Circle width={24} />
               )}
             </Button>
-            <p>{title}</p>
+            <p>{name}</p>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <p className="text-sm">{formatDate(dueDate)}</p>
+            {deadline && <p className="text-sm">{formatDate(deadline)}</p>}
             <Dropdown
               className="bg-white/30 backdrop-blur-lg dark:bg-black/30"
               disableAnimation={browserUserAgent.includes('Chrome')}
