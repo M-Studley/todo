@@ -15,8 +15,12 @@ export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, systemTheme } = useTheme();
 
+  // check browser agent (dropdown component has a bug with background blur and animation in chrome browsers)
+  const [browserUserAgent, setBrowserUserAgent] = useState('');
+
   useEffect(() => {
     setMounted(true);
+    setBrowserUserAgent(navigator.userAgent);
   }, []);
 
   if (!mounted) return null;
@@ -32,7 +36,7 @@ export default function ThemeSwitcher() {
   return (
     <Dropdown
       className="bg-white/30 backdrop-blur-lg dark:bg-black/30"
-      disableAnimation
+      disableAnimation={browserUserAgent.includes('Chrome')}
     >
       <DropdownTrigger>
         <Button isIconOnly className="bg-transparent shadow-lg">

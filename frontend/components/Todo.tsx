@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   CheckCircleIcon,
   EllipsisVerticalIcon,
@@ -43,6 +43,13 @@ export default function Todo({
 }: TodoInt) {
   const [isCompleted, setIsCompleted] = useState(completed);
 
+  // check browser agent (dropdown component has a bug with background blur and animation in chrome browsers)
+  const [browserUserAgent, setBrowserUserAgent] = useState('');
+
+  useEffect(() => {
+    setBrowserUserAgent(navigator.userAgent);
+  }, []);
+
   // nextui custom hook for modal
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -75,7 +82,7 @@ export default function Todo({
             <p className="text-sm">{formatDate(dueDate)}</p>
             <Dropdown
               className="bg-white/30 backdrop-blur-lg dark:bg-black/30"
-              disableAnimation
+              disableAnimation={browserUserAgent.includes('Chrome')}
             >
               <DropdownTrigger>
                 <Button isIconOnly className="bg-transparent" disableRipple>
