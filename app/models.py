@@ -14,4 +14,4 @@ class Todo:
 
 
 class TodoValidator:
-
+    ...
