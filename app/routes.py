@@ -32,4 +32,4 @@ def create_todo():
         return jsonify(data), 201
     except Exception as e:
         print(f'Error: {e}')
-        return make_response(jsonify({'error': 'Internal Server Error'}), 500
+        return make_response(jsonify({'error': 'Internal Server Error'}), 500)
