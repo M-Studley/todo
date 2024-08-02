@@ -11,7 +11,9 @@ import { TodoData } from '../../components/Todo';
 const Todo = dynamic(() => import('../../components/Todo'), { ssr: false });
 
 export default async function TodosPage() {
-  const response = await fetch('http://localhost:3000/mockup-todos.json');
+  const response = await fetch('http://localhost:3000/mockup-todos.json', {
+    cache: 'no-cache',
+  });
   const todos: TodoData[] = await response.json();
 
   return (

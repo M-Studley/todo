@@ -5,7 +5,7 @@
     "description": "Buy Three Kashi GO packs: toasted berry crisp, chocolate crunch and peanut butter crunch",
     "category": "Grocery",
     "priority": "neutral",
-    "created_at": "2024-07-11",
+    "createdAt": "2024-07-11",
     "deadline": "2024-08-01",
     "completed": true
   },
@@ -15,7 +15,7 @@
     "description": "Prepare materials and documents for the meeting with the HR",
     "category": "Work",
     "priority": "high",
-    "created_at": "2024-07-30",
+    "createdAt": "2024-07-30",
     "deadline": "2025-01-01",
     "completed": false
   },
@@ -24,7 +24,7 @@
     "name": "Learn what was I made for",
     "category": "Hobbies",
     "priority": "low",
-    "created_at": "2024-08-1",
+    "createdAt": "2024-08-1",
     "deadline": "2025-01-01",
     "completed": false
   },
@@ -34,7 +34,7 @@
     "description": "Buy Three Kashi GO packs: toasted berry crisp, chocolate crunch and peanut butter crunch",
     "category": "Grocery",
     "priority": "neutral",
-    "created_at": "2024-07-30",
+    "createdAt": "2024-07-30",
     "deadline": "2024-08-02",
     "completed": false
   },
@@ -44,7 +44,7 @@
     "description": "Learn angular",
     "category": "General",
     "priority": "neutral",
-    "deadline": "2024-07-30",
+    "createdAt": "2024-07-30",
     "completed": false
   }
 ]

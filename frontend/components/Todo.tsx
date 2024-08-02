@@ -57,6 +57,7 @@ export default function Todo({
 
   const changeStatus = () => {
     setIsCompleted(!isCompleted);
+    console.log(isCompleted);
     // TODO edit with an api call on backend too
   };
 
@@ -111,8 +112,12 @@ export default function Todo({
       <TodoDetails
         isOpen={isOpen}
         onOpenChange={onOpenChange}
+        name={name}
         description={description}
+        category={category}
         createdAt={createdAt}
+        deadline={deadline}
+        priority={priority}
       />
     </>
   );
