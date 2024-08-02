@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "name": "Cereals",
+    "description": "Buy Three Kashi GO packs: toasted berry crisp, chocolate crunch and peanut butter crunch",
+    "category": "Grocery",
+    "priority": "neutral",
+    "createdAt": "2024-07-11",
+    "deadline": "2024-08-01",
+    "completed": true
+  },
+  {
+    "id": 1,
+    "name": "Meeting prep",
+    "description": "Prepare materials and documents for the meeting with the HR",
+    "category": "Work",
+    "priority": "high",
+    "createdAt": "2024-07-30",
+    "deadline": "2025-01-01",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "name": "Learn what was I made for",
+    "category": "Hobbies",
+    "priority": "low",
+    "createdAt": "2024-08-1",
+    "deadline": "2025-01-01",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "name": "Cereals 2",
+    "description": "Buy Three Kashi GO packs: toasted berry crisp, chocolate crunch and peanut butter crunch",
+    "category": "Grocery",
+    "priority": "neutral",
+    "createdAt": "2024-07-30",
+    "deadline": "2024-08-02",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "name": "Get better at coding",
+    "description": "Learn angular",
+    "category": "General",
+    "priority": "neutral",
+    "createdAt": "2024-07-30",
+    "completed": false
+  }
+]
