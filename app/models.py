@@ -16,6 +16,7 @@ class Todo:
 
 
 class TodoValidator:
+
     @staticmethod
     def check_name(todo: Todo) -> bool:
         if 2 <= len(todo.name) <= 30:
@@ -69,15 +70,10 @@ class TodoValidator:
 
     def check_all(self, todo: Todo) -> bool:
         checks = [
-            self.check_name,
-            self.check_description,
-            self.check_category,
-            self.check_priority,
-            self.check_deadline,
-            self.check_completed
+            self.check_name(todo),
+            self.check_description(todo),
+            self.check_category(todo),
+            self.check_priority(todo),
+            self.check_deadline(todo)
         ]
-
-        for check in checks:
-            if not check(todo):
-                return False
-        return True
+        return all(checks)

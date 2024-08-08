@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify, make_response
+from dataclasses import fields
 
 from .database import Database
+from app.models import Todo, TodoValidator
 
 main = Blueprint('main', __name__)
 db = Database()
@@ -21,17 +23,29 @@ def get_all_todos():
 
 @main.route('/todos', methods=['POST'])
 def create_todo():
-    data = request.get_json()
-    if not data:
-        return make_response(jsonify({'error': 'No data provided'}), 400)
-
-    columns = ', '.join(data.keys())
-    values = tuple(data.values())
-    query = f"INSERT INTO todo ({columns}) VALUES ({', '.join(['%s'] * len(values))})"
-
     try:
-        db.execute(query, values)
-        return jsonify(data), 201
+        # Create the Todo object
+        todo_data = request.get_json()
+        todo = Todo(**todo_data)
+
+        # Validate the Todo object
+        validator = TodoValidator()
+        if not validator.check_all(todo):
+            return make_response(jsonify({'error': 'Invalid data provided'}), 400)
+
+        # Prepare columns and values for the SQL query
+        columns = ', '.join(field.name for field in fields(Todo))
+        values = tuple(getattr(todo, field.name) for field in fields(Todo) if getattr(todo, field.name) is not None)
+        query = f"INSERT INTO todo ({columns}) VALUES ({', '.join(['%s'] * len(values))})"
+
+        # Execute the query to insert the Todo
+        try:
+            db.execute(query, values)
+            return jsonify(todo_data), 201
+        except Exception as e:
+            print(f'Error: {e}')
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+
     except Exception as e:
-        print(f'Error: {e}')
-        return make_response(jsonify({'error': 'Internal Server Error'}), 500)
+        print(f'Error parsing data: {e}')
+        return make_response(jsonify({'error': 'Invalid input data'}), 400)
