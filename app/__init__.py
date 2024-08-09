@@ -1,6 +1,6 @@
 from flask import Flask
-from .routes import main
-from .database import Database
+from app.routes import main
+from app.database import Database
 
 
 def create_app():
