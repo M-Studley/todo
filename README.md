@@ -22,13 +22,19 @@ todo-app/
 ├── backend/
 │ ├── app/
 │ │ ├── init.py
+│ │ ├── database/
+│ │ │ ├── init.py
+│ │ │ ├── database.py
+│ │ ├── models/
+│ │ │ ├── init.py
+│ │ │ ├── models.py
 │ │ ├── routes/
 │ │ │ ├── init.py
 │ │ │ ├── todos.py
-│ │ └── models.py
-│ │ └── config.py
-│ │ └── utils.py
-│ ├── migrations/
+│ │ │ ├── todos-id.py
+│ │ ├── utils/
+│ │ │ ├── init.py
+│ │ │ ├── config.py
 │ ├── tests/
 │ │ ├── init.py
 │ │ └── test_app.py
