@@ -96,6 +96,8 @@ todo-app/
 
 Here is a summary of the main API endpoints provided by the backend:
 
+- **BASE_URL**: https://todo-kb6p.onrender.com
+
 - **GET /todos**: Retrieve all todo items.
 - **POST /todos**: Create a new todo item.
 - **GET /todos/:id**: Retrieve a specific todo item by ID.
