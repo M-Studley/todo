@@ -8,10 +8,10 @@ class Todo:
     name: str  # min: 2 max: 30 char
     description: str  # min: 0 max: 750 char
     category: str  # min: 2 max: 20 char
-    priority: str  # ENUM ('critical', 'high', 'medium', 'low', 'neutral') default: 'neutral'
-    created_at: datetime  # DATETIME ISO format YYYY-MM-DDThh:mm:ss:sssZ ex: 2024-08-02T18:05:45:888Z default: NOW()
-    deadline: datetime  # DATETIME ISO format YYYY-MM-DDThh:mm:ss:sssZ ex: 2024-08-02T18:05:45:888Z ALLOW NULL
-    completed: bool  # True for completed False for NOT completed
+    created_at: datetime = datetime.now()  # DATETIME ISO format 2024-08-02T18:05:45:888Z DEFAULT: NOW()
+    priority: str = 'neutral'  # ENUM ('critical', 'high', 'medium', 'low', 'neutral') default: 'neutral'
+    deadline: datetime = None  # DATETIME ISO format YYYY-MM-DDThh:mm:ss:sssZ ex: 2024-08-02T18:05:45:888Z ALLOW NULL
+    completed: bool = False  # True for completed False for NOT completed DEFAULT: false
     id: int = None  # auto-incremented
 
 
