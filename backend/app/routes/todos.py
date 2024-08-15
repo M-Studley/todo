@@ -33,8 +33,8 @@ def create_todo() -> flask.Response:
             return make_response(jsonify({'error': 'Invalid data provided'}), 400)
 
         # Prepare columns and values for the SQL query
-        columns = ', '.join(key for key in todo_data.__dict__.keys())
-        values = tuple(value for value in todo_data.__dict__.values())
+        columns = ', '.join(key for key in todo_data.keys())
+        values = tuple(value for value in todo_data.values())
         query = f"INSERT INTO todo ({columns}) VALUES ({', '.join(['%s'] * len(values))})"
 
         # Execute the query to insert the to-do
