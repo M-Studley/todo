@@ -19,8 +19,8 @@ class Database:
         return Database.curs.fetchall()
 
     @classmethod
-    def fetchone(cls, query: str) -> dict:
-        Database.curs.execute(query)
+    def fetchone(cls, query: str, value: tuple) -> dict:
+        Database.curs.execute(query, value)
         print(f"Running {query}")
         return Database.curs.fetchone()
 

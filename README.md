@@ -31,7 +31,6 @@ todo-app/
 │ │ ├── routes/
 │ │ │ ├── init.py
 │ │ │ ├── todos.py
-│ │ │ ├── todos-id.py
 │ │ ├── utils/
 │ │ │ ├── init.py
 │ │ │ ├── config.py
