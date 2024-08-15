@@ -39,7 +39,7 @@ def update_todo_by_id(db_id) -> flask.Response:
 
         # Execute the update query
         db.execute(query, values)
-        return jsonify(todo_data)
+        return jsonify(todo)
 
     except Exception as e:
         print(f"Error: {e}")

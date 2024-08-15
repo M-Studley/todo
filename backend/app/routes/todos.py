@@ -39,7 +39,7 @@ def create_todo() -> flask.Response:
         # Execute the query to insert the to-do
         try:
             db.execute(query, values)
-            return jsonify(todo_data)
+            return jsonify(todo)
         except Exception as e:
             print(f'Error: {e}')
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
