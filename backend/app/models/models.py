@@ -9,9 +9,9 @@ class Todo:
     description: str  # min: 0 max: 750 char
     category: str  # min: 2 max: 20 char
     created_at: datetime = None  # DATETIME ISO format 2024-08-02T18:05:45:888Z DEFAULT: NOW()
-    priority: str = None  # ENUM ('critical', 'high', 'medium', 'low', 'neutral') default: 'neutral'
+    priority: str = None  # ENUM ('critical', 'high', 'medium', 'low', 'neutral') DEFAULT: 'neutral'
     deadline: datetime = None  # DATETIME ISO format YYYY-MM-DDThh:mm:ss:sssZ ex: 2024-08-02T18:05:45:888Z ALLOW NULL
-    completed: bool = False  # True for completed False for NOT completed DEFAULT: false
+    completed: bool = None  # True for completed False for NOT completed DEFAULT: false
     id: int = None  # auto-incremented
 
 
