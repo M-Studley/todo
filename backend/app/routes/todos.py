@@ -13,6 +13,7 @@ def get_all_todos() -> flask.Response:
         if all_data:
             return jsonify(all_data)
         else:
+            db.conn.rollback()
             return make_response(jsonify([]), 204)
     except Exception as e:
         print(f'Error: {e}')
@@ -41,6 +42,7 @@ def create_todo() -> flask.Response:
             db.execute(query, values)
             return jsonify(todo)
         except Exception as e:
+            db.conn.rollback()
             print(f'Error: {e}')
             return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
@@ -81,8 +83,13 @@ def update_todo_by_id(db_id) -> flask.Response:
         query = f"UPDATE todo SET {columns} WHERE id = %s"
 
         # Execute the update query
-        db.execute(query, values)
-        return jsonify(todo_data)
+        try:
+            db.execute(query, values)
+            return jsonify(todo_data)
+        except Exception as e:
+            db.conn.rollback()
+            print(f'Error: {e}')
+            return make_response(jsonify({'error': 'Internal Server Error'}), 500)
 
     except Exception as e:
         print(f"Error: {e}")
