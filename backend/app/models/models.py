@@ -16,13 +16,12 @@ class Todo:
 
 
 class TodoValidator:
-
     @staticmethod
     def check_name(todo: Todo) -> bool:
         if 2 <= len(todo.name) <= 30:
             print('Name: Passed!')
             return True
-        print('Name: Failed [incorrect name length]...')
+        print('Name: Failed [Incorrect name length]...')
         return False
 
     @staticmethod
@@ -30,7 +29,7 @@ class TodoValidator:
         if len(todo.description) <= 750:
             print('Description: Passed!')
             return True
-        print('Description: Failed [incorrect description length]...')
+        print('Description: Failed [Incorrect description length]...')
         return False
 
     @staticmethod
@@ -38,16 +37,21 @@ class TodoValidator:
         if 2 <= len(todo.category) <= 20:
             print('Category: Passed!')
             return True
-        print('Category: Failed [incorrect category length]...')
-        return False
+        else:
+            print('Category: Failed... [Incorrect category length]')
+            return False
 
     @staticmethod
     def check_priority(todo: Todo) -> bool:
-        if todo.priority in ['critical', 'high', 'medium', 'low', 'neutral']:
-            print('Priority: Passed!')
+        if todo.priority:
+            if todo.priority in ['critical', 'high', 'medium', 'low', 'neutral']:
+                print('Priority: Passed!')
+                return True
+            print('Priority: Failed... [Priority not in priority list]')
+            return False
+        else:
+            print('Priority: Passed! [No value provided]')
             return True
-        print('Priority: Failed [priority not in priority list]...')
-        return False
 
     @staticmethod
     def check_deadline(todo: Todo) -> bool:
@@ -55,25 +59,31 @@ class TodoValidator:
             if todo.deadline > todo.created_at:
                 print('Deadline: Passed!')
                 return True
-            print('Deadline: Failed [deadline cannot be less than created_at datetime]...')
+            print('Deadline: Failed... [Deadline cannot be less than created_at datetime]')
             return False
-        print('Deadline: Passed! [No deadline specified]')
-        return True
+        else:
+            print('Deadline: Passed! [No value specified]')
+            return True
 
     @staticmethod
     def check_completed(todo: Todo) -> bool:
-        if isinstance(todo.completed, bool):
-            print('Completed: Passed!')
+        if todo.completed:
+            if isinstance(todo.completed, bool):
+                print('Completed: Passed!')
+                return True
+            else:
+                print('Completed: Failed... [completed must be a boolean]')
+                return False
+        else:
+            print('Completed: Passed! [No value provided]')
             return True
-        print('Completed: Failed [completed must be a boolean]...')
-        return False
 
     def check_all(self, todo: Todo) -> bool:
         checks = [
             self.check_name(todo),
             self.check_description(todo),
             self.check_category(todo),
-            # self.check_priority(todo),
-            # self.check_deadline(todo)
+            self.check_priority(todo),
+            self.check_deadline(todo)
         ]
         return all(checks)
