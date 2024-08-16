@@ -99,9 +99,9 @@ Here is a summary of the main API endpoints provided by the backend:
 
 - **GET /todos**: Retrieve all todo items.
 - **POST /todos**: Create a new todo item.
-- **GET /todos/:id**: Retrieve a specific todo item by ID.
-- **PUT /todos/:id**: Update a specific todo item by ID.
-- **DELETE /todos/:id**: Delete a specific todo item by ID.
+- **GET /todos/id**: Retrieve a specific todo item by ID.
+- **PATCH /todos/id**: Update a specific todo item by ID.
+- **DELETE /todos/id**: Delete a specific todo item by ID.
 
 ## License
 
