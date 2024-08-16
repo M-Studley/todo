@@ -78,7 +78,7 @@ def update_todo_by_id(db_id) -> flask.Response:
         # Prepare the update query
         columns = list(key for key in todo_data.keys())
         values = list(value for value in todo_data.values())
-        cols_vals = ", ".join(f'{cols} = {vals}' for cols, vals in zip(columns, values))
+        cols_vals = ", ".join(f"{cols} = '{vals}'" for cols, vals in zip(columns, values))
         query = f"UPDATE todo SET {cols_vals} WHERE id = %s"
 
         # Execute the update query
