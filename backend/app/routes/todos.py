@@ -1,11 +1,11 @@
 import flask
 from flask import request, jsonify, make_response
 
-from . import main, db
+from . import api, db
 from backend.app.models.models import Todo, TodoValidator
 
 
-@main.route('/todos', methods=['GET'])
+@api.route('/todos', methods=['GET'])
 def get_all_todos() -> flask.Response:
     try:
         all_data = db.fetchall('SELECT * FROM todo')
@@ -19,7 +19,7 @@ def get_all_todos() -> flask.Response:
         return make_response(jsonify({'error': 'Internal Server Error...'}), 500)
 
 
-@main.route('/todos', methods=['POST'])
+@api.route('/todos', methods=['POST'])
 def create_todo() -> flask.Response:
     try:
         # Create the to-do object
@@ -50,7 +50,7 @@ def create_todo() -> flask.Response:
         return make_response(jsonify({'error': 'Invalid input data...'}), 400)
 
 
-@main.route('/todos/<int:db_id>', methods=['GET'])
+@api.route('/todos/<int:db_id>', methods=['GET'])
 def get_todo_by_id(db_id) -> flask.Response:
     try:
         todo = db.fetchone('SELECT * FROM todo WHERE id = %s', (db_id,))
@@ -63,7 +63,7 @@ def get_todo_by_id(db_id) -> flask.Response:
         return make_response(jsonify({'error': 'Internal Server Error...'}), 500)
 
 
-@main.route('/todos/<int:db_id>', methods=['PATCH'])
+@api.route('/todos/<int:db_id>', methods=['PATCH'])
 def update_todo_by_id(db_id) -> flask.Response:
     try:
         # Create to-do object
@@ -95,7 +95,7 @@ def update_todo_by_id(db_id) -> flask.Response:
         return make_response(jsonify({'error': 'Internal Server Error...'}), 500)
 
 
-@main.route('/todos/<int:db_id>', methods=['DELETE'])
+@api.route('/todos/<int:db_id>', methods=['DELETE'])
 def delete_todo(db_id):
     try:
         # Locate to-do by ID
