@@ -2,9 +2,7 @@ import os
 
 
 class Config:
-    # SET DATABASE URL FROM ENVIRONMENT VARIABLE
-    DATABASE_URL = os.environ.get(
-        'DATABASE_URL',
-        'postgresql://todo_3m8m_user:CBfySLlcCTMJJddARDWjJw3lWrWFWeak'
-        '@dpg-cqu60lbqf0us73a5sc80-a.oregon-postgres.render.com/todo_3m8m'
-    )
+    # Set DATABASE URL from environment variable
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    if not DATABASE_URL:
+        raise ValueError("No DATABASE_URL environment variable set.")
