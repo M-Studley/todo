@@ -98,14 +98,16 @@ def update_todo_by_id(db_id) -> flask.Response:
 @main.route('/todos/<int:db_id>', methods=['DELETE'])
 def delete_todo(db_id):
     try:
-        # Execute the delete query
-        result = db.execute('DELETE FROM todo WHERE id = %s RETURNING *', (db_id,))
+        # Locate to-do by ID
+        todo = db.fetchone('SELECT * FROM todo WHERE id = %s', (db_id,))
 
-        # Check if a row was deleted
-        if result:
+        if todo:
+            # Execute the delete query
+            db.execute('DELETE FROM todo WHERE id = %s', (db_id,))
             return make_response(jsonify({'message': 'Todo deleted successfully'}), 200)
         else:
             return make_response(jsonify({'error': 'Todo not found'}), 404)
+
     except Exception as e:
         print(f'Error: {e}')
         return make_response(jsonify({'error': 'Internal Server Error'}), 500)
