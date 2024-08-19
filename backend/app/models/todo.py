@@ -21,7 +21,7 @@ class TodoValidator:
         if 2 <= len(todo.name) <= 30:
             print('Name: Passed!')
             return True
-        print('Name: Failed [Incorrect name length]...')
+        print('Name: Failed... [Incorrect name length]')
         return False
 
     @staticmethod
@@ -29,7 +29,7 @@ class TodoValidator:
         if len(todo.description) <= 750:
             print('Description: Passed!')
             return True
-        print('Description: Failed [Incorrect description length]...')
+        print('Description: Failed... [Incorrect description length]')
         return False
 
     @staticmethod

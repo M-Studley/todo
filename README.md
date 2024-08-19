@@ -27,7 +27,8 @@ todo-app/
 │ │ │ ├── database.py
 │ │ ├── models/
 │ │ │ ├── init.py
-│ │ │ ├── models.py
+│ │ │ ├── todo.py
+│ │ │ ├── user.py
 │ │ ├── routes/
 │ │ │ ├── init.py
 │ │ │ ├── todos.py
