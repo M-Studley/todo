@@ -7,7 +7,8 @@ class User:
     first_name: str  # min: 2 max: 30 char
     last_name: str  # min: 2 max: 30 char
     email: str  # min: 7 max: 50 char
-    password: str  # min: 14 max: 30 char [1 Upper, 1 Number]
+    password: str  # min: 14 max: 30 char [1 Upper, 1 Number] HASHED_LEN = 97
+    id: int = None  # auto-incremented
 
 
 class UserValidator:
@@ -69,3 +70,12 @@ class UserValidator:
         else:
             print('error: No Password Provided')
             return False
+
+    def check_all(self, user: User) -> bool:
+        checks = [
+            self.check_first_name(user),
+            self.check_last_name(user),
+            self.check_email(user),
+            self.check_password(user)
+        ]
+        return all(checks)

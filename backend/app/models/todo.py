@@ -8,6 +8,7 @@ class Todo:
     name: str  # min: 2 max: 30 char
     description: str  # min: 0 max: 750 char
     category: str  # min: 2 max: 20 char
+    user_id: int  # references id from a user
     created_at: datetime = None  # DATETIME ISO format 2024-08-02T18:05:45:888Z DEFAULT: NOW()
     priority: str = None  # ENUM ('critical', 'high', 'medium', 'low', 'neutral') DEFAULT: 'neutral'
     deadline: datetime = None  # DATETIME ISO format YYYY-MM-DDThh:mm:ss:sssZ ex: 2024-08-02T18:05:45:888Z ALLOW NULL
