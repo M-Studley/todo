@@ -13,7 +13,7 @@ def get_all_todos() -> flask.Response:
             return make_response(jsonify(all_data), 200)
         else:
             db.conn.rollback()
-            return make_response(jsonify({'error': 'Database empty...'}), 204)
+            return make_response(jsonify({'error': 'Table empty...'}), 204)
     except Exception as e:
         print(f'Error: {e}')
         return make_response(jsonify({'error': 'Internal Server Error...'}), 500)
