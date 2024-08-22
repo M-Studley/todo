@@ -1,13 +1,29 @@
-from argon2 import PasswordHasher
+from dataclasses import dataclass
 
-ph = PasswordHasher(memory_cost=19456, time_cost=2, parallelism=1)
+from argon2 import PasswordHasher, exceptions
 
-hash = ph.hash('Testing')
 
-print(hash)
+@dataclass
+class PasswordManager:
 
-print(ph.verify(hash, 'Testing'))
+    ph: PasswordHasher = PasswordHasher(memory_cost=19456, time_cost=2, parallelism=1)
 
-print(ph.check_needs_rehash(hash))
+    def hasher(self, user_password: str) -> str:
+        try:
+            hashed_pw = self.ph.hash(password=user_password)
 
-print(ph.verify(hash, 'testing'))
+            while self.ph.check_needs_rehash(hashed_pw) is False:
+                hashed_pw = self.ph.hash(password=user_password)
+                print('Hash: Re-Hashing Password...')
+
+            print('Hash: Success!')
+            return hashed_pw
+
+        except exceptions.HashingError as e:
+            print(f'error: Hashing Process Failed... {e}')
+
+    def verification(self, stored_hash: str, submitted_password: str,) -> bool:
+        try:
+            return self.ph.verify(hash=stored_hash, password=submitted_password)
+        except exceptions as e:
+            print(f'Verification: Failed... {e}')
