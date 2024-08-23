@@ -1,7 +1,7 @@
 import flask
 from flask import request, jsonify, make_response
 
-from backend.app.routes.__init__ import todo_api, db
+from backend.app.routes import todo_api, db
 from backend.app.models.todo import Todo, TodoValidator
 
 
