@@ -18,7 +18,7 @@ The Todo App is designed to help users manage their tasks. Users can create, rea
 ## Project Structure
 
 ```bash
-todo-app/
+todo/
 ├── backend/
 │ ├── app/
 │ │ ├── init.py
@@ -32,12 +32,11 @@ todo-app/
 │ │ ├── routes/
 │ │ │ ├── init.py
 │ │ │ ├── todos.py
+│ │ │ ├── users.py
 │ │ ├── utils/
 │ │ │ ├── init.py
 │ │ │ ├── config.py
-│ ├── tests/
-│ │ ├── init.py
-│ │ └── test_app.py
+│ │ │ ├── password_manager.py
 │ ├── venv/
 │ ├── requirements.txt
 │ └── run.py
