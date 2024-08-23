@@ -74,7 +74,34 @@ def get_user_by_id(db_id) -> flask.Response:
 
 @user_api.route('/users/<int:db_id>', methods=['PATCH'])
 def update_user_by_id(db_id) -> flask.Response:
-    ...
+    try:
+        # Create user object
+        user_data = request.get_json()
+        user = User(**user_data)
+
+        # Validate user object
+        validate = UserValidator()
+        if not validate.check_all(user):
+            return make_response(jsonify({'error:': 'Invalid data provided...'}), 400)
+
+        # Prepare the update query
+        columns = list(key for key in user.__dict__.keys())
+        values = list(value for value in user.__dict__.values())
+        cols_vals = ", ".join(f"{cols} = '{vals}'" for cols, vals in zip(columns, values))
+        query = f"UPDATE user SET {cols_vals} WHERE id = %s"
+
+        # Execute the update query
+        try:
+            db.execute(query, (db_id,))
+            return make_response(jsonify(user.__dict__), 200)
+        except Exception as e:
+            db.conn.rollback()
+            print(f'error: {e}')
+            return make_response(jsonify({'error': 'Internal Server Error...'}), 500)
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return make_response(jsonify({'error': 'Internal Server Error...'}), 500)
 
 
 @user_api.route('/users/<int:db_id>', methods=['DELETE'])
