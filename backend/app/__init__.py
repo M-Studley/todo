@@ -9,10 +9,10 @@ def create_app():
     # Initialize the app
     app = Flask(__name__)
 
-    # Register todo_api blueprint
+    # Register blueprints
     app.register_blueprint(backend.app.routes.todo_api)
-
-    # Register user_api blueprint
     app.register_blueprint(backend.app.routes.user_api)
+
+    print(app.url_map)
 
     return app
