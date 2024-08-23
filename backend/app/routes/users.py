@@ -1,7 +1,7 @@
 import flask
 from flask import request, jsonify, make_response
 
-from . import user_api, db
+from backend.app.routes import user_api, db
 from backend.app.models.user import User, UserValidator
 from backend.app.utils.password_manager import PasswordManager
 
