@@ -9,7 +9,7 @@ from backend.app.utils.password_manager import PasswordManager
 @user_api.route('/users', methods=['GET'])
 def get_all_users() -> flask.Response:
     try:
-        all_data = db.fetchall('SELECT * FROM user')
+        all_data = db.fetchall('SELECT * FROM "user"')
         if all_data:
             return make_response(jsonify(all_data), 200)
         else:
@@ -42,7 +42,7 @@ def create_user() -> flask.Response:
         # Prepare columns and values for the SQL query
         columns = ', '.join(key for key in user.__dict__.keys())
         values = tuple(value for value in user.__dict__.values())
-        query = f"INSERT INTO user ({columns}) VALUES ({', '.join(['%s'] * len(values))})"
+        query = f'INSERT INTO "user" ({columns}) VALUES ({", ".join(["%s"] * len(values))})'
 
         # Execute the query to insert the to-do
         try:
@@ -62,7 +62,7 @@ def create_user() -> flask.Response:
 @user_api.route('/users/<int:db_id>', methods=['GET'])
 def get_user_by_id(db_id) -> flask.Response:
     try:
-        user = db.fetchone('SELECT * FROM user WHERE id = %s', (db_id,))
+        user = db.fetchone('SELECT * FROM "user" WHERE id = %s', (db_id,))
         if user:
             return make_response(jsonify(user), 200)
         else:
@@ -88,7 +88,7 @@ def update_user_by_id(db_id) -> flask.Response:
         columns = list(key for key in user.__dict__.keys())
         values = list(value for value in user.__dict__.values())
         cols_vals = ", ".join(f"{cols} = '{vals}'" for cols, vals in zip(columns, values))
-        query = f"UPDATE user SET {cols_vals} WHERE id = %s"
+        query = f'UPDATE "user" SET {cols_vals} WHERE id = %s'
 
         # Execute the update query
         try:
@@ -108,7 +108,7 @@ def update_user_by_id(db_id) -> flask.Response:
 def delete_user(db_id):
     try:
         # Locate to-do by ID
-        user = db.fetchone('SELECT * FROM user WHERE id = %s', (db_id,))
+        user = db.fetchone('SELECT * FROM "user" WHERE id = %s', (db_id,))
 
         if user:
             # Execute the delete query
