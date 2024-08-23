@@ -1,7 +1,7 @@
 from flask import Flask
 
 from backend.app.routes.todos import todo_api
-# from backend.app.routes.users import user_api
+from backend.app.routes.users import user_api
 from backend.app.database.database import Database
 
 
@@ -10,8 +10,8 @@ def create_app():
     app = Flask(__name__)
 
     # Register blueprints
-    app.register_blueprint(todo_api, url_prefix='/todos')
-    # app.register_blueprint(user_api, url_prefix='/users')
+    app.register_blueprint(todo_api)
+    app.register_blueprint(user_api)
 
     # Initialize Database
     Database.init()
