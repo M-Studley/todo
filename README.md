@@ -97,11 +97,19 @@ Here is a summary of the main API endpoints provided by the backend:
 
 - **BASE_URL**: https://todo-kb6p.onrender.com
 
+### TODOS
 - **GET /todos**: Retrieve all todo items.
 - **POST /todos**: Create a new todo item.
 - **GET /todos/id**: Retrieve a specific todo item by ID.
 - **PATCH /todos/id**: Update a specific todo item by ID.
 - **DELETE /todos/id**: Delete a specific todo item by ID.
+
+### USERS
+- **GET /users**: Retrieve all user items.
+- **POST /users**: Create a new user item.
+- **GET /users/id**: Retrieve a specific user item by ID.
+- **PATCH /users/id**: Update a specific user item by ID.
+- **DELETE /users/id**: Delete a specific user item by ID.
 
 ## License
 
